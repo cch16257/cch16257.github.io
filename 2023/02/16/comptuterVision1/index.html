@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>图像在计算机上的表示----数字图像 | 弄潮儿呛了一口水</title><meta name="author" content="弄潮儿呛了一口水"><meta name="copyright" content="弄潮儿呛了一口水"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数字图像的基本概念数字图像，又称 数码图像或 数位图像，是二维图像用有限数字数值像素的表示，由数组或矩阵表示。 数字图像的精度 图像空间分辨率：指图像数字化的空间精细程度。 灰度级分辨率： 即颜色深度，表示每一像素的颜色值所占的二进制位数。颜色深度越大则能表示的颜色数目越多。  数字图像处理的目的 提高图像的视感质量，达到赏心悦目的目的。 图像去除噪声，改变图像的亮度、颜色，增强图像中的某些成份、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像在计算机上的表示----数字图像">
+<meta property="og:url" content="http://example.com/2023/02/16/comptuterVision1/index.html">
+<meta property="og:site_name" content="弄潮儿呛了一口水">
+<meta property="og:description" content="数字图像的基本概念数字图像，又称 数码图像或 数位图像，是二维图像用有限数字数值像素的表示，由数组或矩阵表示。 数字图像的精度 图像空间分辨率：指图像数字化的空间精细程度。 灰度级分辨率： 即颜色深度，表示每一像素的颜色值所占的二进制位数。颜色深度越大则能表示的颜色数目越多。  数字图像处理的目的 提高图像的视感质量，达到赏心悦目的目的。 图像去除噪声，改变图像的亮度、颜色，增强图像中的某些成份、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/cover/vintage-4896141_1920.jpg">
+<meta property="article:published_time" content="2023-02-16T02:49:28.000Z">
+<meta property="article:modified_time" content="2023-02-16T03:05:06.875Z">
+<meta property="article:author" content="弄潮儿呛了一口水">
+<meta property="article:tag" content="computerVision">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/cover/vintage-4896141_1920.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/16/comptuterVision1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '图像在计算机上的表示----数字图像',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-16 11:05:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/10/31/PQJvgnASt1iyeNU.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/image/cover/vintage-4896141_1920.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">弄潮儿呛了一口水</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">图像在计算机上的表示----数字图像</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-16T02:49:28.000Z" title="发表于 2023-02-16 10:49:28">2023-02-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-16T03:05:06.875Z" title="更新于 2023-02-16 11:05:06">2023-02-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/computerVision/">computerVision</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图像在计算机上的表示----数字图像"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="数字图像的基本概念"><a href="#数字图像的基本概念" class="headerlink" title="数字图像的基本概念"></a>数字图像的基本概念</h3><p>数字图像，又称 数码图像或 数位图像，是二维图像用有限数字数值像素的表示，由数组或矩阵表示。</p>
+<h3 id="数字图像的精度"><a href="#数字图像的精度" class="headerlink" title="数字图像的精度"></a>数字图像的精度</h3><ol>
+<li>图像空间分辨率：指图像数字化的空间精细程度。</li>
+<li>灰度级分辨率： 即颜色深度，表示每一像素的颜色值所占的二进制位数。颜色深度越大则能表示的颜色数目越多。</li>
+</ol>
+<h3 id="数字图像处理的目的"><a href="#数字图像处理的目的" class="headerlink" title="数字图像处理的目的"></a>数字图像处理的目的</h3><ol>
+<li>提高图像的视感质量，达到赏心悦目的目的。 图像去除噪声，改变图像的亮度、颜色，增强图像中的某些成份、抑制某些成份，对图像进行几何变换等，从而改善图像的质量。</li>
+<li>提取图像中某些特征， 以便于分析。常用作模式识别、计算机视觉的预处 理等。这些特征包括很多方面，如频域特 性、灰度／颜色特性、边界／区域特性、纹理特性、形状特性等。</li>
+<li>图像识别，在分析的基础上，进行内容识别，例如：汽车牌照识别，人脸识别、虹膜识别、指纹识别等。<br>过程：采集——分析——识别</li>
+<li>对图像数据压缩，便于存储和传输。提高存储量，提高网络的速度。</li>
+</ol>
+<h3 id="python中PIL工具的图像模式"><a href="#python中PIL工具的图像模式" class="headerlink" title="python中PIL工具的图像模式"></a>python中PIL工具的图像模式</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>介绍</th>
+<th>个人理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“1”</td>
+<td>模式“1”为<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BA%8C%E5%80%BC%E5%9B%BE%E5%83%8F&spm=1001.2101.3001.7020">二值图像</a>，非黑即白。但是它每个像素用8个bit表示，0表示黑，255表示白。下面我们将lena图像转换为“1”图像。</td>
+<td>在计算机内部存储中，8位可表示256个数字，即0-255。但是“1”模式不用1位0、1来表示黑和白，而是使用8位中0和255表示。</td>
+</tr>
+<tr>
+<td>“L”</td>
+<td>模式L”为灰色图像，它的每个像素用8个bit表示，0表示黑，255表示白，其他数字表示不同的灰度。在PIL中，从模式“RGB”转换为“L”模式是按照下面的公式转换的：        L &#x3D; R * 299&#x2F;1000 + G * 587&#x2F;1000+ B * 114&#x2F;1000</td>
+<td></td>
+</tr>
+<tr>
+<td>“P”</td>
+<td>模式“P”为8位彩色图像，它的每个像素用8个bit表示，其对应的彩色值是按照调色板查询出来的。</td>
+<td></td>
+</tr>
+<tr>
+<td>“RGBA”</td>
+<td>模式“RGBA”为32位彩色图像，它的每个像素用32个bit表示，其中24bit表示红色、绿色和蓝色三个通道，另外8bit表示alpha通道，即透明通道。alpha通道全部设置为255，即完全不透明。</td>
+<td></td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">弄潮儿呛了一口水</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/16/comptuterVision1/">http://example.com/2023/02/16/comptuterVision1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">弄潮儿呛了一口水</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/computerVision/">computerVision</a></div><div class="post_share"><div class="social-share" data-image="/image/cover/vintage-4896141_1920.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/21/ChatGPT/"><img class="prev-cover" src="/image/cover/woman-1369253_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ChatGPT</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/13/fingerthesis2/"><img class="next-cover" src="/image/cover/composing-2391033_1920.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">卷积神经网络在手指静脉识别中的应用研究</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/03/02/evaluatingIndicator/" title="图像识别的评价指标"><img class="cover" src="/image/cover/texture-1909992_1920.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-02</div><div class="title">图像识别的评价指标</div></div></a></div><div><a href="/2023/03/13/visionTransformer/" title="visionTransformer归纳总结"><img class="cover" src="/image/cover/girl-2696947_1920.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-13</div><div class="title">visionTransformer归纳总结</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/10/31/PQJvgnASt1iyeNU.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">弄潮儿呛了一口水</div><div class="author-info__description">五花八门齐聚身，旁门左道应中心。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cch16257"><i class="fab fa-github"></i><span>Come With Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">公什么？什么告？唉，老了，耳朵不中用了...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">数字图像的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E7%9A%84%E7%B2%BE%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">数字图像的精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">数字图像处理的目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E4%B8%ADPIL%E5%B7%A5%E5%85%B7%E7%9A%84%E5%9B%BE%E5%83%8F%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">python中PIL工具的图像模式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/13/visionTransformer/" title="visionTransformer归纳总结"><img src="/image/cover/girl-2696947_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="visionTransformer归纳总结"/></a><div class="content"><a class="title" href="/2023/03/13/visionTransformer/" title="visionTransformer归纳总结">visionTransformer归纳总结</a><time datetime="2023-03-13T13:49:12.000Z" title="发表于 2023-03-13 21:49:12">2023-03-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/09/import/" title="import"><img src="/image/cover/fantasy-2506830_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="import"/></a><div class="content"><a class="title" href="/2023/03/09/import/" title="import">import</a><time datetime="2023-03-09T07:14:44.000Z" title="发表于 2023-03-09 15:14:44">2023-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/02/evaluatingIndicator/" title="图像识别的评价指标"><img src="/image/cover/texture-1909992_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像识别的评价指标"/></a><div class="content"><a class="title" href="/2023/03/02/evaluatingIndicator/" title="图像识别的评价指标">图像识别的评价指标</a><time datetime="2023-03-02T08:59:52.000Z" title="发表于 2023-03-02 16:59:52">2023-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/21/ChatGPT/" title="ChatGPT"><img src="/image/cover/woman-1369253_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ChatGPT"/></a><div class="content"><a class="title" href="/2023/02/21/ChatGPT/" title="ChatGPT">ChatGPT</a><time datetime="2023-02-21T01:48:52.000Z" title="发表于 2023-02-21 09:48:52">2023-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/16/comptuterVision1/" title="图像在计算机上的表示----数字图像"><img src="/image/cover/vintage-4896141_1920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像在计算机上的表示----数字图像"/></a><div class="content"><a class="title" href="/2023/02/16/comptuterVision1/" title="图像在计算机上的表示----数字图像">图像在计算机上的表示----数字图像</a><time datetime="2023-02-16T02:49:28.000Z" title="发表于 2023-02-16 10:49:28">2023-02-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/11/02/EmSMXrVJxYvN2AH.gif')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 弄潮儿呛了一口水</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="cch16257.github.io"><img class="icp-icon" src="https://s2.loli.net/2022/10/31/B7T2FtKAvquw1Jl.png"><span>备案号：cch16257</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2023/02/16/comptuterVision1/'
+    this.page.identifier = '/2023/02/16/comptuterVision1/'
+    this.page.title = '图像在计算机上的表示----数字图像'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
